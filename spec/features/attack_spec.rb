@@ -7,8 +7,13 @@ feature 'attack player 2' do
 
   scenario 'OK button returns to /play' do
     sign_in_and_play
-    click_button('Attack!')
-    click_button('OK')
+    attack_and_ok
     expect(page).to have_current_path('/play')
+  end
+
+  scenario 'player 2 hp reduced by 10' do
+    sign_in_and_play
+    attack_and_ok
+    expect(page).to have_content('90HP')
   end
 end
