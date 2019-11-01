@@ -3,6 +3,6 @@
   <%= @game.player_2.name %>: <%= @game.player_2.hp %>HP
  </h1>
 
-<form action='/attack' method='get'>
+<form action=<%= @next_page %> method='get'>
   <input type="submit" value="Attack!">
 </form>

@@ -20,12 +20,29 @@ require_relative 'lib/game'
 
   get '/play' do
     @game = $game
+    @next_page = '/attack'
     erb :play
   end
 
   get '/attack' do
     @game = $game
     @game.attack(@game.player_2)
+    @sound = 'KAPOW'
+    @next_page = '/play2'
+    erb :attack
+  end
+
+  get '/play2' do
+    @game = $game
+    @next_page = '/attack2'
+    erb :play
+  end
+
+  get '/attack2' do
+    @game = $game
+    @game.attack(@game.player_1)
+    @sound = 'BAM'
+    @next_page = '/play'
     erb :attack
   end
 
