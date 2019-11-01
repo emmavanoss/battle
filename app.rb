@@ -25,7 +25,7 @@ require_relative 'lib/player'
   end
 
   get '/attack' do
-    game = Game.new
+    game = Game.new($player_1, $player_2)
     game.attack($player_2)
     erb :attack
   end
